@@ -19,7 +19,6 @@ import java.awt.event.MouseEvent;
 class GrassEnvironment extends Environment {
 
     public GrassEnvironment() {
-        this.setBackground(Color.GREEN);
         this.setBackground(ResourceTools.loadImageFromResource("snakegame/grass.jpg"));
     }
 
