@@ -6,9 +6,11 @@
 package snakegame;
 
 import environment.Environment;
+import grid.Grid;
 import images.ResourceTools;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
@@ -17,9 +19,15 @@ import java.awt.event.MouseEvent;
  * @author solomonszocs
  */
 class GrassEnvironment extends Environment {
-
+    
+    private Grid grid;
+    private Snake bob;
+    
     public GrassEnvironment() {
         this.setBackground(ResourceTools.loadImageFromResource("snakegame/grass.jpg"));
+        grid = new Grid(25, 20, 20, 20, new Point(20, 50), Color.BLUE);
+        bob = new Snake(Direction.LEFT);
+        
     }
 
     @Override
@@ -58,14 +66,19 @@ class GrassEnvironment extends Environment {
     
     @Override
     public void paintEnvironment(Graphics graphics) {
-        graphics.setColor(Color.RED);
-
-        graphics.fillOval(50, 50, 50, 100);
+       
+        if (grid != null){
+            grid.paintComponent(graphics);
+        }
         
-        graphics.fillRect(400, 350, 50, 100);        
-        
-        graphics.setColor(Color.BLUE);
-        graphics.fillRect(this.getWidth() / 2 - size / 2, this.getHeight()/2 - size / 2, size, size);
+//        graphics.setColor(Color.RED);
+//
+//        graphics.fillOval(50, 50, 50, 100);
+//        
+//        graphics.fillRect(400, 350, 50, 100);        
+//        
+//        graphics.setColor(Color.BLUE);
+//        graphics.fillRect(this.getWidth() / 2 - size / 2, this.getHeight()/2 - size / 2, size, size);
 
     }
 
